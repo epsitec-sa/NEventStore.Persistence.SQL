@@ -10,8 +10,9 @@
 
 namespace NEventStore.Persistence.Sql.SqlDialects {
     using System;
-    
-    
+    using System.Reflection;
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -39,7 +40,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NEventStore.Persistence.Sql.SqlDialects.MsSqlStatements", typeof(MsSqlStatements).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NEventStore.Persistence.Sql.SqlDialects.MsSqlStatements", typeof(MsSqlStatements).GetType ().GetTypeInfo ().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -67,14 +68,14 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         ///       [BucketId] [varchar](40) NOT NULL,
         ///       [StreamId] [char](40) NOT NULL,
         ///       [StreamIdOriginal] [nvarchar](1000) NOT NULL,
-        ///       [StreamRevision] [int] NOT NULL CHECK ([StreamRevision] &gt; 0),
-        ///       [Items] [tinyint] NOT NULL CHECK ([Items] &gt; 0),
+        ///       [StreamRevision] [int] NOT NULL CHECK ([StreamRevision] > 0),
+        ///       [Items] [tinyint] NOT NULL CHECK ([Items] > 0),
         ///       [CommitId] [uniqueidentifier] NOT NULL CHECK ([CommitId] != 0x0),
         ///       [CommitSequence] [int] NOT NULL CHECK ([CommitSequenc [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string InitializeStorage {
             get {
-                return ResourceManager.GetString("InitializeStorage", resourceCulture);
+                return ResourceManagerStub.GetString("InitializeStorage", resourceCulture);
             }
         }
         
@@ -89,7 +90,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         /// </summary>
         internal static string PagedQueryFormat {
             get {
-                return ResourceManager.GetString("PagedQueryFormat", resourceCulture);
+                return ResourceManagerStub.GetString("PagedQueryFormat", resourceCulture);
             }
         }
         
@@ -102,7 +103,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         /// </summary>
         internal static string PersistCommits {
             get {
-                return ResourceManager.GetString("PersistCommits", resourceCulture);
+                return ResourceManagerStub.GetString("PersistCommits", resourceCulture);
             }
         }
     }

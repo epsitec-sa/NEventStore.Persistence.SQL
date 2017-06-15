@@ -10,8 +10,9 @@
 
 namespace NEventStore.Persistence.Sql.SqlDialects {
     using System;
-    
-    
+    using System.Reflection;
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -39,7 +40,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NEventStore.Persistence.Sql.SqlDialects.OracleNativeStatements", typeof(OracleNativeStatements).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NEventStore.Persistence.Sql.SqlDialects.OracleNativeStatements", typeof(OracleNativeStatements).GetType ().GetTypeInfo ().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +62,11 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AND CommitSequence &gt; :CommitSequence.
+        ///   Looks up a localized string similar to AND CommitSequence > :CommitSequence.
         /// </summary>
         internal static string AddCommitSequence {
             get {
-                return ResourceManager.GetString("AddCommitSequence", resourceCulture);
+                return ResourceManagerStub.GetString("AddCommitSequence", resourceCulture);
             }
         }
         
@@ -78,7 +79,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         ///	(
         ///    SELECT * FROM COMMITS 
         ///    WHERE	BucketId = :BucketId AND StreamId = :StreamId
-        ///      AND	(StreamRevision - Items) &lt;= :StreamRevision
+        ///      AND	(StreamRevision - Items) <= :StreamRevision
         ///	)
         /// AND NOT EXISTS
         ///	(
@@ -89,7 +90,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         /// </summary>
         internal static string AppendSnapshotToCommit {
             get {
-                return ResourceManager.GetString("AppendSnapshotToCommit", resourceCulture);
+                return ResourceManagerStub.GetString("AppendSnapshotToCommit", resourceCulture);
             }
         }
         
@@ -101,7 +102,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         /// </summary>
         internal static string DeleteStream {
             get {
-                return ResourceManager.GetString("DeleteStream", resourceCulture);
+                return ResourceManagerStub.GetString("DeleteStream", resourceCulture);
             }
         }
         
@@ -114,7 +115,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         /// </summary>
         internal static string DropTables {
             get {
-                return ResourceManager.GetString("DropTables", resourceCulture);
+                return ResourceManagerStub.GetString("DropTables", resourceCulture);
             }
         }
         
@@ -130,7 +131,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         /// </summary>
         internal static string DuplicateCommit {
             get {
-                return ResourceManager.GetString("DuplicateCommit", resourceCulture);
+                return ResourceManagerStub.GetString("DuplicateCommit", resourceCulture);
             }
         }
         
@@ -138,13 +139,13 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         ///   Looks up a localized string similar to /*GetCommitsFromBucketAndCheckpoint*/
         ///SELECT BucketId, StreamId, StreamIdOriginal, StreamRevision, CommitId, CommitSequence, CommitStamp, CheckpointNumber, Headers, Payload
         ///FROM Commits 
-        ///WHERE BucketId = :BucketId AND CheckpointNumber &gt; :CheckpointNumber
+        ///WHERE BucketId = :BucketId AND CheckpointNumber > :CheckpointNumber
         ///ORDER BY CheckpointNumber
-        ///WHERE ROWNUM &lt;= :Limit;.
+        ///WHERE ROWNUM <= :Limit;.
         /// </summary>
         internal static string GetCommitsFromBucketAndCheckpoint {
             get {
-                return ResourceManager.GetString("GetCommitsFromBucketAndCheckpoint", resourceCulture);
+                return ResourceManagerStub.GetString("GetCommitsFromBucketAndCheckpoint", resourceCulture);
             }
         }
         
@@ -152,12 +153,12 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         ///   Looks up a localized string similar to /*GetCommitsFromInstant*/
         ///SELECT BucketId, StreamId, StreamIdOriginal, StreamRevision, CommitId, CommitSequence, CommitStamp, CheckpointNumber, Headers, Payload
         ///FROM Commits 
-        ///WHERE BucketId = :BucketId AND CommitStamp &gt;= :CommitStamp
+        ///WHERE BucketId = :BucketId AND CommitStamp >= :CommitStamp
         ///ORDER BY CommitStamp, StreamId, CommitSequence.
         /// </summary>
         internal static string GetCommitsFromInstant {
             get {
-                return ResourceManager.GetString("GetCommitsFromInstant", resourceCulture);
+                return ResourceManagerStub.GetString("GetCommitsFromInstant", resourceCulture);
             }
         }
         
@@ -166,14 +167,14 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         ///SELECT BucketId, StreamId, StreamIdOriginal, StreamRevision, CommitId, CommitSequence, CommitStamp, CheckpointNumber, Headers, Payload
         ///FROM Commits
         ///WHERE BucketId = :BucketId AND StreamId = :StreamId
-        ///   AND StreamRevision &gt;= :StreamRevision
-        ///   AND (StreamRevision - Items) &lt; :MaxStreamRevision
-        ///   AND CommitSequence &gt; :CommitSequence
+        ///   AND StreamRevision >= :StreamRevision
+        ///   AND (StreamRevision - Items) < :MaxStreamRevision
+        ///   AND CommitSequence > :CommitSequence
         ///ORDER BY CommitSequence.
         /// </summary>
         internal static string GetCommitsFromStartingRevision {
             get {
-                return ResourceManager.GetString("GetCommitsFromStartingRevision", resourceCulture);
+                return ResourceManagerStub.GetString("GetCommitsFromStartingRevision", resourceCulture);
             }
         }
         
@@ -181,13 +182,13 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         ///   Looks up a localized string similar to /*GetCommitsSinceCheckpoint*/
         ///SELECT BucketId, StreamId, StreamIdOriginal, StreamRevision, CommitId, CommitSequence, CommitStamp, CheckpointNumber, Headers, Payload
         ///FROM Commits 
-        ///WHERE  CheckpointNumber &gt; :CheckpointNumber
+        ///WHERE  CheckpointNumber > :CheckpointNumber
         ///ORDER BY CheckpointNumber
-        ///WHERE ROWNUM &lt;= :Limit;.
+        ///WHERE ROWNUM <= :Limit;.
         /// </summary>
         internal static string GetCommitsSinceCheckpoint {
             get {
-                return ResourceManager.GetString("GetCommitsSinceCheckpoint", resourceCulture);
+                return ResourceManagerStub.GetString("GetCommitsSinceCheckpoint", resourceCulture);
             }
         }
         
@@ -196,13 +197,13 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         ///SELECT *
         ///FROM  Snapshots 
         ///WHERE BucketId = :BucketId AND StreamId = :StreamId
-        /// AND	StreamRevision  &lt;= :StreamRevision
-        /// AND	ROWNUM &lt;= (:Skip + 1) AND ROWNUM  &gt; :Skip
+        /// AND	StreamRevision  <= :StreamRevision
+        /// AND	ROWNUM <= (:Skip + 1) AND ROWNUM  > :Skip
         ///ORDER BY StreamRevision DESC.
         /// </summary>
         internal static string GetSnapshot {
             get {
-                return ResourceManager.GetString("GetSnapshot", resourceCulture);
+                return ResourceManagerStub.GetString("GetSnapshot", resourceCulture);
             }
         }
         
@@ -212,13 +213,13 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         ///FROM (
         ///  SELECT C.BucketId, C.StreamId, C.StreamIdOriginal, MAX(C.StreamRevision) AS StreamRevision, MAX(COALESCE(S.StreamRevision, 0)) AS SnapshotRevision
         ///  FROM  Commits C LEFT OUTER JOIN Snapshots S
-        ///    ON C.BucketId = :BucketId AND C.StreamId = S.StreamId AND C.StreamRevision &gt;= S.StreamRevision
+        ///    ON C.BucketId = :BucketId AND C.StreamId = S.StreamId AND C.StreamRevision >= S.StreamRevision
         ///  GROUP BY C.StreamId, C.BucketId, C.StreamIdOriginal
-        ///  HAVING MAX(C.StreamRevision) &gt;= MAX(C [rest of string was truncated]&quot;;.
+        ///  HAVING MAX(C.StreamRevision) >= MAX(C [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string GetStreamsRequiringSnapshots {
             get {
-                return ResourceManager.GetString("GetStreamsRequiringSnapshots", resourceCulture);
+                return ResourceManagerStub.GetString("GetStreamsRequiringSnapshots", resourceCulture);
             }
         }
         
@@ -238,7 +239,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         /// </summary>
         internal static string InitializeStorage {
             get {
-                return ResourceManager.GetString("InitializeStorage", resourceCulture);
+                return ResourceManagerStub.GetString("InitializeStorage", resourceCulture);
             }
         }
         
@@ -249,11 +250,11 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         ///    {0}    
         ///  ) InnerQuery
         ///) OuterQuery
-        ///WHERE ROW_NUMBER_VAL &gt; :Skip AND ROW_NUMBER_VAL &lt;= (:Limit + :Skip).
+        ///WHERE ROW_NUMBER_VAL > :Skip AND ROW_NUMBER_VAL <= (:Limit + :Skip).
         /// </summary>
         internal static string LimitedQueryFormat {
             get {
-                return ResourceManager.GetString("LimitedQueryFormat", resourceCulture);
+                return ResourceManagerStub.GetString("LimitedQueryFormat", resourceCulture);
             }
         }
         
@@ -267,7 +268,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         /// </summary>
         internal static string MarkCommitAsDispatched {
             get {
-                return ResourceManager.GetString("MarkCommitAsDispatched", resourceCulture);
+                return ResourceManagerStub.GetString("MarkCommitAsDispatched", resourceCulture);
             }
         }
         
@@ -278,11 +279,11 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         ///       ROW_NUMBER() OVER({1}) AS ROW_NUMBER_VAL
         ///       {2}
         ///) PagedQueryFormat
-        ///WHERE ROW_NUMBER_VAL &gt; :Skip AND ROW_NUMBER_VAL &lt;= (:Limit + :Skip).
+        ///WHERE ROW_NUMBER_VAL > :Skip AND ROW_NUMBER_VAL <= (:Limit + :Skip).
         /// </summary>
         internal static string PagedQueryFormat {
             get {
-                return ResourceManager.GetString("PagedQueryFormat", resourceCulture);
+                return ResourceManagerStub.GetString("PagedQueryFormat", resourceCulture);
             }
         }
         
@@ -319,7 +320,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         /// </summary>
         internal static string PersistCommit {
             get {
-                return ResourceManager.GetString("PersistCommit", resourceCulture);
+                return ResourceManagerStub.GetString("PersistCommit", resourceCulture);
             }
         }
         
@@ -341,7 +342,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         /// </summary>
         internal static string PurgeBucket {
             get {
-                return ResourceManager.GetString("PurgeBucket", resourceCulture);
+                return ResourceManagerStub.GetString("PurgeBucket", resourceCulture);
             }
         }
         
@@ -365,7 +366,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         /// </summary>
         internal static string PurgeStorage {
             get {
-                return ResourceManager.GetString("PurgeStorage", resourceCulture);
+                return ResourceManagerStub.GetString("PurgeStorage", resourceCulture);
             }
         }
     }

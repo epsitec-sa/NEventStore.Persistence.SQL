@@ -1,6 +1,7 @@
 namespace NEventStore.Persistence.Sql.SqlDialects
 {
     using System;
+    using System.Reflection;
 
     public class SqliteDialect : CommonSqlDialect
     {
@@ -29,7 +30,14 @@ namespace NEventStore.Persistence.Sql.SqlDialects
 
         public override DateTime ToDateTime(object value)
         {
-            return ((DateTime) value).ToUniversalTime();
+            if (value.GetType ().GetTypeInfo ().Name == "String")
+            {
+                return DateTime.Parse (value.ToString ()).ToUniversalTime ();
+            }
+            else
+            {
+                return ((DateTime)value).ToUniversalTime ();
+            }
         }
     }
 }

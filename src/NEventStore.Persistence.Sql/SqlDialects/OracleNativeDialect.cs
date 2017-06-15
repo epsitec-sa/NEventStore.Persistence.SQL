@@ -199,7 +199,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects
         {
             if (_addPayloadParamater == null)
             {
-                string dbProviderAssemblyName = connectionFactory.GetDbProviderFactoryType().Assembly.GetName().Name;
+                string dbProviderAssemblyName = connectionFactory.GetDbProviderFactoryType().GetTypeInfo ().Assembly.GetName().Name;
                 const string oracleManagedDataAcccessAssemblyName = "Oracle.ManagedDataAccess";
                 const string oracleDataAcccessAssemblyName = "Oracle.DataAccess";
                 if (dbProviderAssemblyName.Equals(oracleManagedDataAcccessAssemblyName, StringComparison.Ordinal))
@@ -222,7 +222,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects
         private Action<IConnectionFactory, IDbConnection, IDbStatement, byte[]> CreateOraAddPayloadAction(
             string assemblyName)
         {
-            Assembly assembly = Assembly.Load(assemblyName);
+            Assembly assembly = Assembly.Load(new AssemblyName (assemblyName));
             var oracleParamaterType = assembly.GetType(assemblyName + ".Client.OracleParameter", true);
             var oracleParamaterValueProperty = oracleParamaterType.GetProperty("Value");
             var oracleBlobType = assembly.GetType(assemblyName + ".Types.OracleBlob", true);

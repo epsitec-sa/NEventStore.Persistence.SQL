@@ -162,10 +162,10 @@ namespace NEventStore.Persistence.Sql.SqlDialects
             IDbCommand command = _connection.CreateCommand();
 
             int timeout = 0;
-            if( int.TryParse( System.Configuration.ConfigurationManager.AppSettings["NEventStore.SqlCommand.Timeout"], out timeout ) ) 
-            {
+            //if( int.TryParse( System.Configuration.ConfigurationManager.AppSettings["NEventStore.SqlCommand.Timeout"], out timeout ) ) 
+            //{
               command.CommandTimeout = timeout;
-            }
+            //}
 
             command.Transaction = _transaction;
             command.CommandText = statement;

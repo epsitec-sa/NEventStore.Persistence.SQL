@@ -10,8 +10,9 @@
 
 namespace NEventStore.Persistence.Sql {
     using System;
-    
-    
+    using System.Reflection;
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -39,7 +40,7 @@ namespace NEventStore.Persistence.Sql {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NEventStore.Persistence.Sql.Messages", typeof(Messages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NEventStore.Persistence.Sql.Core.Messages", typeof(Messages).GetType ().GetTypeInfo ().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -65,7 +66,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string AddingParameter {
             get {
-                return ResourceManager.GetString("AddingParameter", resourceCulture);
+                return ResourceManagerStub.GetString("AddingParameter", resourceCulture);
             }
         }
         
@@ -74,7 +75,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string AddingSnapshot {
             get {
-                return ResourceManager.GetString("AddingSnapshot", resourceCulture);
+                return ResourceManagerStub.GetString("AddingSnapshot", resourceCulture);
             }
         }
         
@@ -83,7 +84,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string AlreadyDisposed {
             get {
-                return ResourceManager.GetString("AlreadyDisposed", resourceCulture);
+                return ResourceManagerStub.GetString("AlreadyDisposed", resourceCulture);
             }
         }
         
@@ -92,7 +93,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string AttemptingToCommit {
             get {
-                return ResourceManager.GetString("AttemptingToCommit", resourceCulture);
+                return ResourceManagerStub.GetString("AttemptingToCommit", resourceCulture);
             }
         }
         
@@ -101,7 +102,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string AutoDetectDialect {
             get {
-                return ResourceManager.GetString("AutoDetectDialect", resourceCulture);
+                return ResourceManagerStub.GetString("AutoDetectDialect", resourceCulture);
             }
         }
         
@@ -110,7 +111,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string BadConnectionName {
             get {
-                return ResourceManager.GetString("BadConnectionName", resourceCulture);
+                return ResourceManagerStub.GetString("BadConnectionName", resourceCulture);
             }
         }
         
@@ -119,7 +120,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string BadFactoryResult {
             get {
-                return ResourceManager.GetString("BadFactoryResult", resourceCulture);
+                return ResourceManagerStub.GetString("BadFactoryResult", resourceCulture);
             }
         }
         
@@ -128,7 +129,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string BindingParameter {
             get {
-                return ResourceManager.GetString("BindingParameter", resourceCulture);
+                return ResourceManagerStub.GetString("BindingParameter", resourceCulture);
             }
         }
         
@@ -137,7 +138,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string CleaningRootThreadScope {
             get {
-                return ResourceManager.GetString("CleaningRootThreadScope", resourceCulture);
+                return ResourceManagerStub.GetString("CleaningRootThreadScope", resourceCulture);
             }
         }
         
@@ -146,7 +147,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string ClientControlledTransaction {
             get {
-                return ResourceManager.GetString("ClientControlledTransaction", resourceCulture);
+                return ResourceManagerStub.GetString("ClientControlledTransaction", resourceCulture);
             }
         }
         
@@ -155,7 +156,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string CommandExecuted {
             get {
-                return ResourceManager.GetString("CommandExecuted", resourceCulture);
+                return ResourceManagerStub.GetString("CommandExecuted", resourceCulture);
             }
         }
         
@@ -164,7 +165,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string CommandTextToExecute {
             get {
-                return ResourceManager.GetString("CommandTextToExecute", resourceCulture);
+                return ResourceManagerStub.GetString("CommandTextToExecute", resourceCulture);
             }
         }
         
@@ -173,7 +174,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string CommandThrewException {
             get {
-                return ResourceManager.GetString("CommandThrewException", resourceCulture);
+                return ResourceManagerStub.GetString("CommandThrewException", resourceCulture);
             }
         }
         
@@ -182,7 +183,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string CommitPersisted {
             get {
-                return ResourceManager.GetString("CommitPersisted", resourceCulture);
+                return ResourceManagerStub.GetString("CommitPersisted", resourceCulture);
             }
         }
         
@@ -191,7 +192,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string ConcurrentWriteDetected {
             get {
-                return ResourceManager.GetString("ConcurrentWriteDetected", resourceCulture);
+                return ResourceManagerStub.GetString("ConcurrentWriteDetected", resourceCulture);
             }
         }
         
@@ -200,7 +201,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string ConfiguringConnections {
             get {
-                return ResourceManager.GetString("ConfiguringConnections", resourceCulture);
+                return ResourceManagerStub.GetString("ConfiguringConnections", resourceCulture);
             }
         }
         
@@ -209,7 +210,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string ConnectionFactorySpecified {
             get {
-                return ResourceManager.GetString("ConnectionFactorySpecified", resourceCulture);
+                return ResourceManagerStub.GetString("ConnectionFactorySpecified", resourceCulture);
             }
         }
         
@@ -218,7 +219,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string ConnectionNotFound {
             get {
-                return ResourceManager.GetString("ConnectionNotFound", resourceCulture);
+                return ResourceManagerStub.GetString("ConnectionNotFound", resourceCulture);
             }
         }
         
@@ -227,7 +228,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string CreatingCommand {
             get {
-                return ResourceManager.GetString("CreatingCommand", resourceCulture);
+                return ResourceManagerStub.GetString("CreatingCommand", resourceCulture);
             }
         }
         
@@ -236,7 +237,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string DeletingStream {
             get {
-                return ResourceManager.GetString("DeletingStream", resourceCulture);
+                return ResourceManagerStub.GetString("DeletingStream", resourceCulture);
             }
         }
         
@@ -245,7 +246,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string DeserializingCommit {
             get {
-                return ResourceManager.GetString("DeserializingCommit", resourceCulture);
+                return ResourceManagerStub.GetString("DeserializingCommit", resourceCulture);
             }
         }
         
@@ -254,7 +255,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string DeserializingSnapshot {
             get {
-                return ResourceManager.GetString("DeserializingSnapshot", resourceCulture);
+                return ResourceManagerStub.GetString("DeserializingSnapshot", resourceCulture);
             }
         }
         
@@ -263,7 +264,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string DialectSpecified {
             get {
-                return ResourceManager.GetString("DialectSpecified", resourceCulture);
+                return ResourceManagerStub.GetString("DialectSpecified", resourceCulture);
             }
         }
         
@@ -272,7 +273,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string DiscoveredConnectionProvider {
             get {
-                return ResourceManager.GetString("DiscoveredConnectionProvider", resourceCulture);
+                return ResourceManagerStub.GetString("DiscoveredConnectionProvider", resourceCulture);
             }
         }
         
@@ -281,7 +282,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string DiscoveringConnectionSettings {
             get {
-                return ResourceManager.GetString("DiscoveringConnectionSettings", resourceCulture);
+                return ResourceManagerStub.GetString("DiscoveringConnectionSettings", resourceCulture);
             }
         }
         
@@ -290,7 +291,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string DisposingRootThreadScopeResources {
             get {
-                return ResourceManager.GetString("DisposingRootThreadScopeResources", resourceCulture);
+                return ResourceManagerStub.GetString("DisposingRootThreadScopeResources", resourceCulture);
             }
         }
         
@@ -299,7 +300,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string DisposingStatement {
             get {
-                return ResourceManager.GetString("DisposingStatement", resourceCulture);
+                return ResourceManagerStub.GetString("DisposingStatement", resourceCulture);
             }
         }
         
@@ -308,7 +309,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string DisposingThreadScope {
             get {
-                return ResourceManager.GetString("DisposingThreadScope", resourceCulture);
+                return ResourceManagerStub.GetString("DisposingThreadScope", resourceCulture);
             }
         }
         
@@ -317,7 +318,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string DroppingTables {
             get {
-                return ResourceManager.GetString("DroppingTables", resourceCulture);
+                return ResourceManagerStub.GetString("DroppingTables", resourceCulture);
             }
         }
         
@@ -326,7 +327,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string DuplicateCommit {
             get {
-                return ResourceManager.GetString("DuplicateCommit", resourceCulture);
+                return ResourceManagerStub.GetString("DuplicateCommit", resourceCulture);
             }
         }
         
@@ -335,7 +336,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string EnumeratedRowCount {
             get {
-                return ResourceManager.GetString("EnumeratedRowCount", resourceCulture);
+                return ResourceManagerStub.GetString("EnumeratedRowCount", resourceCulture);
             }
         }
         
@@ -344,7 +345,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string EnumerationThrewException {
             get {
-                return ResourceManager.GetString("EnumerationThrewException", resourceCulture);
+                return ResourceManagerStub.GetString("EnumerationThrewException", resourceCulture);
             }
         }
         
@@ -353,7 +354,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string ExceptionSuppressed {
             get {
-                return ResourceManager.GetString("ExceptionSuppressed", resourceCulture);
+                return ResourceManagerStub.GetString("ExceptionSuppressed", resourceCulture);
             }
         }
         
@@ -362,7 +363,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string ExecutingCommand {
             get {
-                return ResourceManager.GetString("ExecutingCommand", resourceCulture);
+                return ResourceManagerStub.GetString("ExecutingCommand", resourceCulture);
             }
         }
         
@@ -371,7 +372,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string ExecutingQuery {
             get {
-                return ResourceManager.GetString("ExecutingQuery", resourceCulture);
+                return ResourceManagerStub.GetString("ExecutingQuery", resourceCulture);
             }
         }
         
@@ -380,7 +381,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string GettingAllCommitsBetween {
             get {
-                return ResourceManager.GetString("GettingAllCommitsBetween", resourceCulture);
+                return ResourceManagerStub.GetString("GettingAllCommitsBetween", resourceCulture);
             }
         }
         
@@ -389,7 +390,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string GettingAllCommitsFrom {
             get {
-                return ResourceManager.GetString("GettingAllCommitsFrom", resourceCulture);
+                return ResourceManagerStub.GetString("GettingAllCommitsFrom", resourceCulture);
             }
         }
         
@@ -398,7 +399,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string GettingAllCommitsFromBucketAndCheckpoint {
             get {
-                return ResourceManager.GetString("GettingAllCommitsFromBucketAndCheckpoint", resourceCulture);
+                return ResourceManagerStub.GetString("GettingAllCommitsFromBucketAndCheckpoint", resourceCulture);
             }
         }
         
@@ -407,7 +408,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string GettingAllCommitsFromCheckpoint {
             get {
-                return ResourceManager.GetString("GettingAllCommitsFromCheckpoint", resourceCulture);
+                return ResourceManagerStub.GetString("GettingAllCommitsFromCheckpoint", resourceCulture);
             }
         }
         
@@ -416,7 +417,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string GettingAllCommitsFromTo {
             get {
-                return ResourceManager.GetString("GettingAllCommitsFromTo", resourceCulture);
+                return ResourceManagerStub.GetString("GettingAllCommitsFromTo", resourceCulture);
             }
         }
         
@@ -425,7 +426,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string GettingRevision {
             get {
-                return ResourceManager.GetString("GettingRevision", resourceCulture);
+                return ResourceManagerStub.GetString("GettingRevision", resourceCulture);
             }
         }
         
@@ -434,7 +435,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string GettingStreamsToSnapshot {
             get {
-                return ResourceManager.GetString("GettingStreamsToSnapshot", resourceCulture);
+                return ResourceManagerStub.GetString("GettingStreamsToSnapshot", resourceCulture);
             }
         }
         
@@ -443,7 +444,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string GettingUndispatchedCommits {
             get {
-                return ResourceManager.GetString("GettingUndispatchedCommits", resourceCulture);
+                return ResourceManagerStub.GetString("GettingUndispatchedCommits", resourceCulture);
             }
         }
         
@@ -452,7 +453,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string InitializingStorage {
             get {
-                return ResourceManager.GetString("InitializingStorage", resourceCulture);
+                return ResourceManagerStub.GetString("InitializingStorage", resourceCulture);
             }
         }
         
@@ -461,7 +462,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string MarkingCommitAsDispatched {
             get {
-                return ResourceManager.GetString("MarkingCommitAsDispatched", resourceCulture);
+                return ResourceManagerStub.GetString("MarkingCommitAsDispatched", resourceCulture);
             }
         }
         
@@ -470,7 +471,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string MaxPageSize {
             get {
-                return ResourceManager.GetString("MaxPageSize", resourceCulture);
+                return ResourceManagerStub.GetString("MaxPageSize", resourceCulture);
             }
         }
         
@@ -479,7 +480,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string MissingConnectionString {
             get {
-                return ResourceManager.GetString("MissingConnectionString", resourceCulture);
+                return ResourceManagerStub.GetString("MissingConnectionString", resourceCulture);
             }
         }
         
@@ -488,7 +489,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string MissingProviderName {
             get {
-                return ResourceManager.GetString("MissingProviderName", resourceCulture);
+                return ResourceManagerStub.GetString("MissingProviderName", resourceCulture);
             }
         }
         
@@ -497,7 +498,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string ObjectAlreadyDisposed {
             get {
-                return ResourceManager.GetString("ObjectAlreadyDisposed", resourceCulture);
+                return ResourceManagerStub.GetString("ObjectAlreadyDisposed", resourceCulture);
             }
         }
         
@@ -506,7 +507,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string OpenFailed {
             get {
-                return ResourceManager.GetString("OpenFailed", resourceCulture);
+                return ResourceManagerStub.GetString("OpenFailed", resourceCulture);
             }
         }
         
@@ -515,7 +516,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string OpeningConnection {
             get {
-                return ResourceManager.GetString("OpeningConnection", resourceCulture);
+                return ResourceManagerStub.GetString("OpeningConnection", resourceCulture);
             }
         }
         
@@ -524,7 +525,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string OpeningMasterConnection {
             get {
-                return ResourceManager.GetString("OpeningMasterConnection", resourceCulture);
+                return ResourceManagerStub.GetString("OpeningMasterConnection", resourceCulture);
             }
         }
         
@@ -533,7 +534,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string OpeningThreadScope {
             get {
-                return ResourceManager.GetString("OpeningThreadScope", resourceCulture);
+                return ResourceManagerStub.GetString("OpeningThreadScope", resourceCulture);
             }
         }
         
@@ -542,7 +543,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string PagingSpecified {
             get {
-                return ResourceManager.GetString("PagingSpecified", resourceCulture);
+                return ResourceManagerStub.GetString("PagingSpecified", resourceCulture);
             }
         }
         
@@ -551,7 +552,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string PurgingBucket {
             get {
-                return ResourceManager.GetString("PurgingBucket", resourceCulture);
+                return ResourceManagerStub.GetString("PurgingBucket", resourceCulture);
             }
         }
         
@@ -560,7 +561,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string PurgingStorage {
             get {
-                return ResourceManager.GetString("PurgingStorage", resourceCulture);
+                return ResourceManagerStub.GetString("PurgingStorage", resourceCulture);
             }
         }
         
@@ -569,7 +570,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string QueryCompleted {
             get {
-                return ResourceManager.GetString("QueryCompleted", resourceCulture);
+                return ResourceManagerStub.GetString("QueryCompleted", resourceCulture);
             }
         }
         
@@ -578,7 +579,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string RecoverableExceptionCompletesScope {
             get {
-                return ResourceManager.GetString("RecoverableExceptionCompletesScope", resourceCulture);
+                return ResourceManagerStub.GetString("RecoverableExceptionCompletesScope", resourceCulture);
             }
         }
         
@@ -587,7 +588,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string ShuttingDownPersistence {
             get {
-                return ResourceManager.GetString("ShuttingDownPersistence", resourceCulture);
+                return ResourceManagerStub.GetString("ShuttingDownPersistence", resourceCulture);
             }
         }
         
@@ -596,7 +597,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string StorageThrewException {
             get {
-                return ResourceManager.GetString("StorageThrewException", resourceCulture);
+                return ResourceManagerStub.GetString("StorageThrewException", resourceCulture);
             }
         }
         
@@ -605,7 +606,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string StreamIdHasherSpecified {
             get {
-                return ResourceManager.GetString("StreamIdHasherSpecified", resourceCulture);
+                return ResourceManagerStub.GetString("StreamIdHasherSpecified", resourceCulture);
             }
         }
         
@@ -614,7 +615,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string StreamIdHashIsNullEmptyOrWhiteSpace {
             get {
-                return ResourceManager.GetString("StreamIdHashIsNullEmptyOrWhiteSpace", resourceCulture);
+                return ResourceManagerStub.GetString("StreamIdHashIsNullEmptyOrWhiteSpace", resourceCulture);
             }
         }
         
@@ -623,7 +624,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string StreamIdHashTooLong {
             get {
-                return ResourceManager.GetString("StreamIdHashTooLong", resourceCulture);
+                return ResourceManagerStub.GetString("StreamIdHashTooLong", resourceCulture);
             }
         }
         
@@ -632,7 +633,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string StreamIdIsNullEmptyOrWhiteSpace {
             get {
-                return ResourceManager.GetString("StreamIdIsNullEmptyOrWhiteSpace", resourceCulture);
+                return ResourceManagerStub.GetString("StreamIdIsNullEmptyOrWhiteSpace", resourceCulture);
             }
         }
         
@@ -641,7 +642,7 @@ namespace NEventStore.Persistence.Sql {
         /// </summary>
         internal static string UsingScope {
             get {
-                return ResourceManager.GetString("UsingScope", resourceCulture);
+                return ResourceManagerStub.GetString("UsingScope", resourceCulture);
             }
         }
     }

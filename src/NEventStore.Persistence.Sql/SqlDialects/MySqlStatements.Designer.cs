@@ -10,8 +10,9 @@
 
 namespace NEventStore.Persistence.Sql.SqlDialects {
     using System;
-    
-    
+    using System.Reflection;
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -39,7 +40,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NEventStore.Persistence.Sql.SqlDialects.MySqlStatements", typeof(MySqlStatements).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NEventStore.Persistence.Sql.SqlDialects.MySqlStatements", typeof(MySqlStatements).GetType ().GetTypeInfo ().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -66,17 +67,17 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         ///    BucketId varchar(40) charset utf8 NOT NULL,
         ///    StreamId varchar(40) charset utf8 NOT NULL,
         ///    StreamIdOriginal varchar(1000) charset utf8 NOT NULL,
-        ///    StreamRevision int NOT NULL CHECK (StreamRevision &gt; 0),
-        ///    Items tinyint NOT NULL CHECK (Items &gt; 0),
+        ///    StreamRevision int NOT NULL CHECK (StreamRevision > 0),
+        ///    Items tinyint NOT NULL CHECK (Items > 0),
         ///    CommitId binary(16) NOT NULL CHECK (CommitId != 0),
-        ///    CommitSequence int NOT NULL CHECK (CommitSequence &gt; 0),
+        ///    CommitSequence int NOT NULL CHECK (CommitSequence > 0),
         ///    CommitStamp bigint NOT NULL,
         ///    CheckpointNumber bigint AUTO_INCREMENT,
         ///    Dispatc [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string InitializeStorage {
             get {
-                return ResourceManager.GetString("InitializeStorage", resourceCulture);
+                return ResourceManagerStub.GetString("InitializeStorage", resourceCulture);
             }
         }
         
@@ -89,7 +90,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects {
         /// </summary>
         internal static string PersistCommit {
             get {
-                return ResourceManager.GetString("PersistCommit", resourceCulture);
+                return ResourceManagerStub.GetString("PersistCommit", resourceCulture);
             }
         }
     }

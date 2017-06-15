@@ -98,8 +98,8 @@ namespace NEventStore.Persistence.Sql.SqlDialects
 
         public override IDbTransaction OpenTransaction(IDbConnection connection)
         {
-            if (Transaction.Current == null)
-                return connection.BeginTransaction(IsolationLevel.ReadCommitted);
+            //if (Transaction.Current == null)
+             //   return connection.BeginTransaction(IsolationLevel.ReadCommitted);
 
             return base.OpenTransaction(connection);
         }

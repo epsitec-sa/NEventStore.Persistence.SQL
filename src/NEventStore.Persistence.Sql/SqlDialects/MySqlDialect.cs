@@ -49,7 +49,7 @@ namespace NEventStore.Persistence.Sql.SqlDialects
 
         public override bool IsDuplicate(Exception exception)
         {
-            PropertyInfo property = exception.GetType().GetProperty("Number");
+            PropertyInfo property = exception.GetType().GetTypeInfo ().GetProperty("Number");
             return UniqueKeyViolation == (int) property.GetValue(exception, null);
         }
     }
