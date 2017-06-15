@@ -1,15 +1,13 @@
 namespace NEventStore.Persistence.Sql
 {
     using System;
-    using System.Threading;
-    using System.Web;
     using NEventStore.Logging;
 
     public class ThreadScope<T> : IDisposable where T : class
     {
-        private readonly HttpContext _context = HttpContext.Current;
         private readonly T _current;
         private readonly ILog _logger = LogFactory.BuildLogger(typeof (ThreadScope<T>));
+        private static readonly System.Collections.Concurrent.ConcurrentDictionary<string, object> _dict = new System.Collections.Concurrent.ConcurrentDictionary<string, object> ();
         private readonly bool _rootScope;
         private readonly string _threadKey;
         private bool _disposed;
@@ -75,23 +73,24 @@ namespace NEventStore.Persistence.Sql
 
         private T Load()
         {
-            if (_context != null)
+            if (!_dict.ContainsKey (_threadKey))
             {
-                return _context.Items[_threadKey] as T;
+                return null;
             }
 
-            return Thread.GetData(Thread.GetNamedDataSlot(_threadKey)) as T;
+            return _dict[_threadKey] as T;
         }
 
         private void Store(T value)
         {
-            if (_context != null)
+            if (value != null)
             {
-                _context.Items[_threadKey] = value;
+                _dict.AddOrUpdate (_threadKey, value, (key, newValue) => newValue);
             }
             else
             {
-                Thread.SetData(Thread.GetNamedDataSlot(_threadKey), value);
+                object t;
+                _dict.TryRemove (_threadKey, out t);
             }
         }
     }
