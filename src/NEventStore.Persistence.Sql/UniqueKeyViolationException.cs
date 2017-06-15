@@ -38,7 +38,7 @@ namespace NEventStore.Persistence.Sql
         /// <param name="info">The SerializationInfo that holds the serialized object data of the exception being thrown.</param>
         /// <param name="context">The StreamingContext that contains contextual information about the source or destination.</param>
         protected UniqueKeyViolationException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
+            : base(info.ToString ())
         {}
     }
 }
