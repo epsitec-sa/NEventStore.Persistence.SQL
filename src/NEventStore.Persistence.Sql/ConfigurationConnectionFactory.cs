@@ -108,7 +108,8 @@ namespace NEventStore.Persistence.Sql
                 {
                     return factory;
                 }
-                factory = DbProviderFactories.GetFactory(setting.ProviderName);
+
+                factory = Microsoft.Data.Sqlite.SqliteFactory.Instance;// DbProviderFactories.GetFactory(setting.ProviderName);
                 Logger.Debug(Messages.DiscoveredConnectionProvider, setting.Name, factory.GetType());
                 return CachedFactories[setting.Name] = factory;
             }
