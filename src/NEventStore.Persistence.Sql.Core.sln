@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{09DEED55-B936-4C29-AC45-6844080C025D}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NEventStore.Persistence.Sql.nuspec = .nuget\NEventStore.Persistence.Sql.nuspec
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NEventStore.Persistence.SQL.Core", "NEventStore.Persistence.SQL\NEventStore.Persistence.SQL.Core.csproj", "{EE1B0618-36B7-44D0-B09F-016F7A65C33F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NEventStore.Core.Tests", "NEventStore.Core.Tests\NEventStore.Core.Tests.csproj", "{85A506A3-92EA-47D8-B861-599F73C420FA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NEventStore.Core", "..\dependencies\NEventStore\src\NEventStore\NEventStore.Core.csproj", "{97948DE9-B937-493C-B6C8-8E6D7A658D58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE1B0618-36B7-44D0-B09F-016F7A65C33F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE1B0618-36B7-44D0-B09F-016F7A65C33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE1B0618-36B7-44D0-B09F-016F7A65C33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE1B0618-36B7-44D0-B09F-016F7A65C33F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85A506A3-92EA-47D8-B861-599F73C420FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85A506A3-92EA-47D8-B861-599F73C420FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85A506A3-92EA-47D8-B861-599F73C420FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85A506A3-92EA-47D8-B861-599F73C420FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97948DE9-B937-493C-B6C8-8E6D7A658D58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97948DE9-B937-493C-B6C8-8E6D7A658D58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97948DE9-B937-493C-B6C8-8E6D7A658D58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97948DE9-B937-493C-B6C8-8E6D7A658D58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
