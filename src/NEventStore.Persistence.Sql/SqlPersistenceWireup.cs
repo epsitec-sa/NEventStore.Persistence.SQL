@@ -21,6 +21,7 @@ namespace NEventStore
             Logger.Verbose(Messages.AutoDetectDialect);
             Container.Register<ISqlDialect>(c => null); // auto-detect
             Container.Register<IStreamIdHasher>(c => new Sha1StreamIdHasher());
+            Container.Register<ISerialize> (c => new JsonSerializer ());
 
             Container.Register(c => new SqlPersistenceFactory(
                 connectionFactory,
